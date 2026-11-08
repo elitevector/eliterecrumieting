@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>EVU // RECRUITMENT ADMIN</title>
+<meta name="robots" content="noindex,nofollow">
+<meta name="color-scheme" content="dark">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; connect-src https://*.supabase.co; base-uri 'none'; form-action 'none'; object-src 'none'">
+<meta name="referrer" content="no-referrer">
+<link rel="icon" href="logo.png" type="image/png">
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="recruit.css">
+</head>
+<body>
+<div class="bgfx" aria-hidden="true"><div class="g"></div><div class="n"></div><div class="s"></div></div>
+
+<div class="alogin" id="gate">
+  <div class="panel" id="gateBox"><div class="who">ЗАГРУЗКА...</div></div>
+</div>
+
+<div class="shell" id="shell" hidden>
+  <aside class="side">
+    <a class="brand" href="index.html"><span class="logo-stack"><img src="logo.png" alt=""></span><span><b>EVU // ADMIN</b><small>RECRUITMENT CONTROL</small></span></a>
+    <nav class="tabs" id="tabs" aria-label="Разделы панели">
+      <button class="tab on" data-t="overview" type="button">Обзор</button>
+      <button class="tab" data-t="apps" type="button">Заявки <span class="bd" id="newBd" hidden>0</span></button>
+      <button class="tab" data-t="logs" type="button">Журнал</button>
+      <button class="tab" data-t="settings" type="button">Настройки</button>
+    </nav>
+    <div class="me"><span>ВЫ ВОШЛИ КАК</span><b id="meName">—</b><span id="meRole">—</span><br><button class="btn sm dim" id="logout" type="button" style="margin-top:10px">Выйти</button></div>
+  </aside>
+  <div class="mainc">
+    <div class="top"><h1 id="vt">Обзор</h1><div style="display:flex;gap:10px;align-items:center;flex-wrap:wrap"><span class="pill" id="pill"><i></i><span id="pillT">...</span></span><button class="btn sm" id="refresh" type="button">Обновить</button></div></div>
+    <div class="view" id="view"></div>
+  </div>
+</div>
+<div class="demo" id="demo" hidden>DEMO MODE // ДАННЫЕ ТОЛЬКО В ЭТОМ БРАУЗЕРЕ // РЕАЛЬНЫЕ ПРАВА, DISCORD И БАЗА ПОДКЛЮЧАЮТСЯ ЧЕРЕЗ SUPABASE</div>
+
+<script src="config.js"></script>
+<script src="core.js"></script>
+<script src="admin.js"></script>
+</body>
+</html>

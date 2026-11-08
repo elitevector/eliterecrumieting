@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; connect-src https://*.supabase.co; base-uri 'none'; form-action 'none'; object-src 'none'">
+<meta name="robots" content="noindex, nofollow">
+<meta name="referrer" content="no-referrer">
+<meta name="color-scheme" content="dark">
+<title>EVU // РЕДАКТОР САЙТА НАБОРА</title>
+<link rel="icon" href="logo.png" type="image/png">
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="recruit.css">
+<script src="boot.js"></script>
+</head>
+<body class="adm-body">
+<div class="bgfx" aria-hidden="true"><div class="g"></div><div class="n"></div><div class="s"></div></div>
+
+<div id="login" class="ed-login">
+  <span class="logo-stack"><img src="logo.png" alt=""></span>
+  <h1>Редактор сайта</h1>
+  <p class="ed-note">Пароль хранится в Supabase. После пяти неверных попыток вход блокируется на 15 минут.</p>
+  <form id="loginForm" autocomplete="off">
+    <div><label class="ed-lbl" for="pw">Пароль</label><input class="ed-in" id="pw" type="password" autocomplete="current-password" required></div>
+    <button class="ed-b" type="submit">Войти</button>
+  </form>
+  <p class="ed-note" id="loginErr" hidden></p>
+</div>
+
+<div id="panel" hidden>
+  <div class="adm-top">
+    <span class="logo-stack"><img src="logo.png" alt=""></span><b class="ed-name">EVU // РЕДАКТОР</b><small class="ed-site" id="siteLabel"></small>
+    <span class="sp"></span>
+    <a class="ed-b ghost lnk" href="index.html">Открыть сайт</a>
+    <button id="logout" class="ed-b ghost" type="button">Выйти</button>
+  </div>
+  <div class="adm-wrap">
+    <span class="tag">Панель управления</span>
+    <h1>Содержимое сайта</h1>
+    <p class="ed-note">Правки из админки перекрывают значения из config.js. Кнопка «Сбросить» возвращает значение из файла.</p>
+    <div class="ed-tabs" role="group" aria-label="Вкладки">
+      <button type="button" data-tab="texts" aria-pressed="true">Тексты</button>
+      <button type="button" data-tab="cards" aria-pressed="false">Карточки</button>
+    </div>
+    <div id="tabTexts"></div>
+    <div id="tabCards" hidden>
+      <div class="ed-tbar">
+        <div><label class="ed-lbl" for="secSel">Раздел</label><select class="ed-in" id="secSel"></select></div>
+        <button id="addCard" class="ed-b" type="button">Добавить карточку</button>
+      </div>
+      <p class="ed-note" id="cfgNote"></p>
+      <div id="cardList"></div>
+    </div>
+  </div>
+</div>
+<div id="toast" class="ed-toast" hidden></div>
+
+<script src="config.js"></script>
+<script src="content.js"></script>
+<script src="content-core.js"></script>
+<script src="editor.js"></script>
+</body>
+</html>

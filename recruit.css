@@ -1,0 +1,88 @@
+/* ===== EVU Recruitment: логотип, заставка, редактор ===== */
+.logo-stack{position:relative;display:block;aspect-ratio:147/169;flex:none}
+.logo-stack img{display:block;width:100%;height:100%;object-fit:contain;filter:drop-shadow(0 0 22px rgba(255,255,255,.14))}
+.logo-stack .scan{position:absolute;inset:0;pointer-events:none;mix-blend-mode:screen;
+  -webkit-mask:url(logo.png) center/100% 100% no-repeat;mask:url(logo.png) center/100% 100% no-repeat;
+  background:linear-gradient(180deg,transparent 0,transparent 40%,rgba(255,255,255,.95) 50%,transparent 60%,transparent 100%);
+  background-size:100% 300%;background-position:0 0;animation:rcScan 5.5s var(--ease) infinite 2.8s}
+@keyframes rcScan{0%{background-position:0 0}55%,100%{background-position:0 100%}}
+.brand .logo-stack{height:38px}
+.brand .logo-stack img,.ft-logo img{filter:none}
+.ft-logo{height:60px;margin-bottom:18px}
+.logo .logo-pos{position:absolute;inset:0;display:grid;place-items:center}
+.hero-logo{width:50%;animation:rcFade 2s .8s both,rcFloat 8s ease-in-out 2.8s infinite}
+@keyframes rcFade{from{opacity:0}to{opacity:1}}
+@keyframes rcFloat{50%{transform:translateY(-9px)}}
+.logo::before{content:"";position:absolute;inset:16%;border-radius:50%;background:radial-gradient(circle,rgba(255,255,255,.08),transparent 68%);animation:rcBreathe 6s ease-in-out infinite}
+@keyframes rcBreathe{50%{transform:scale(1.18);opacity:.55}}
+.cta h2{white-space:pre-line}
+
+/* заставка */
+html:not(.js) #splash{display:none}
+.js body.loading{overflow:hidden}
+#splash{position:fixed;inset:0;z-index:1000;background:var(--bg);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:28px;transition:opacity .9s var(--ease),visibility .9s}
+#splash.done{opacity:0;visibility:hidden}
+.splash-logo{height:150px;animation:rcLogoIn 1.6s var(--ease) both}
+.splash-logo .scan{animation-delay:1.2s}
+@keyframes rcLogoIn{from{clip-path:inset(100% 0 0 0);opacity:.2}to{clip-path:inset(0);opacity:1}}
+.sp-label{font:500 12px var(--mono);letter-spacing:.34em;color:var(--mute);text-align:center;padding:0 20px}
+.sp-bar{width:min(280px,64vw);height:1px;background:var(--line);overflow:hidden}
+.sp-bar i{display:block;height:100%;background:#fff;transform:scaleX(0);transform-origin:left;animation:rcLoad 2s var(--ease) forwards}
+@keyframes rcLoad{to{transform:scaleX(1)}}
+.js body.loading .hero h1 .c,.js body.loading .hero-logo{animation-play-state:paused}
+
+/* админка заявок: логотип на входе и в боковой панели */
+.side .brand .logo-stack{height:44px}
+.gate-logo{height:76px;margin:0 auto 18px}
+
+.adm-body{min-height:100vh}
+.adm-top{position:sticky;top:0;z-index:50;display:flex;align-items:center;gap:16px;padding:12px var(--pad);background:rgba(5,5,5,.9);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.adm-top .logo-stack{height:34px}
+.adm-top .sp{flex:1}
+.adm-wrap{position:relative;z-index:1;max-width:900px;margin:0 auto;padding:56px 20px 100px}
+.adm-wrap h1{font:700 clamp(32px,5vw,54px)/1 var(--display);letter-spacing:.03em;text-transform:uppercase;margin:12px 0 10px}
+.ed-note{color:var(--mute);font-size:15px;max-width:60ch}
+.ed-tabs{display:flex;border:1px solid var(--line);margin:30px 0 28px;width:max-content;max-width:100%}
+.ed-tabs button{min-height:48px;padding:0 24px;background:none;border:0;border-right:1px solid var(--line);font:600 12px var(--display);letter-spacing:.18em;text-transform:uppercase;color:var(--mute);cursor:pointer}
+.ed-tabs button:last-child{border-right:0}
+.ed-tabs button:hover{color:#fff;background:#151515}
+.ed-tabs button[aria-pressed="true"]{background:#fff;color:#000}
+.ed-login{position:relative;z-index:1;max-width:420px;margin:16vh auto 0;padding:34px 30px;border:1px solid #fff;background:var(--bg2)}
+.ed-login::before,.ed-login::after{content:"";position:absolute;width:14px;height:14px;border:1px solid #fff}
+.ed-login::before{top:-8px;left:-8px;border-right:0;border-bottom:0}
+.ed-login::after{bottom:-8px;right:-8px;border-left:0;border-top:0}
+.ed-login .logo-stack{height:72px;margin-bottom:22px}
+.ed-login h1{font:700 26px var(--display);letter-spacing:.08em;text-transform:uppercase;margin-bottom:10px}
+.ed-login form{display:grid;gap:16px;margin-top:22px}
+.ed-lbl{display:block;font:500 10px var(--mono);letter-spacing:.26em;color:var(--mute);text-transform:uppercase;margin-bottom:8px}
+.ed-in{width:100%;padding:13px 14px;background:var(--card);color:#fff;border:1px solid var(--line);font:inherit;font-size:16px;border-radius:0;transition:border-color .3s,background .3s,box-shadow .3s}
+.ed-in:focus{outline:none;border-color:#fff;background:#151515;box-shadow:0 0 0 4px rgba(255,255,255,.07)}
+textarea.ed-in{min-height:96px;resize:vertical;line-height:1.55}
+.ed-b{min-height:46px;padding:0 22px;font:600 12px var(--display);letter-spacing:.18em;text-transform:uppercase;background:#fff;color:#000;border:1px solid #fff;cursor:pointer;transition:background .3s,color .3s}
+.ed-b:hover{background:#000;color:#fff}
+.ed-b.ghost{background:none;color:#fff;border-color:var(--line)}
+.ed-b.ghost:hover{border-color:#fff}
+.ed-b.danger{background:none;color:#ff9a9a;border-color:#5b2a2a}
+.ed-b.danger:hover{background:#ff9a9a;color:#000}
+.ed-gh{font:700 22px var(--display);letter-spacing:.08em;text-transform:uppercase;margin:38px 0 14px;padding-bottom:10px;border-bottom:1px solid var(--line)}
+.ed-it{position:relative;border:1px solid var(--line);background:var(--card);padding:20px;margin-bottom:12px;display:grid;gap:14px}
+.ed-it.changed{border-color:#fff}
+.ed-it .ed-row{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+.ed-it .ed-two{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.ed-it .ed-chk{display:flex;align-items:center;gap:10px;font-size:15px;cursor:pointer}
+.ed-it .ed-chk input{width:18px;height:18px;accent-color:#fff}
+.ed-pill{font:600 10px var(--mono);letter-spacing:.2em;border:1px solid #fff;padding:2px 8px;margin-left:10px;vertical-align:middle}
+.ed-tbar{display:flex;gap:12px;align-items:end;flex-wrap:wrap;margin-bottom:22px}
+.ed-tbar select{min-width:200px}
+.ed-toast{position:fixed;right:20px;bottom:20px;z-index:500;max-width:360px;padding:14px 18px;background:#fff;color:#000;font:600 13px var(--mono);letter-spacing:.04em}
+.ed-toast.err{background:#ff9a9a}
+@media(max-width:560px){.ed-it .ed-two{grid-template-columns:1fr}.ed-tabs{width:100%}.ed-tabs button{flex:1;padding:0 8px}}
+.ed-b.lnk{display:inline-flex;align-items:center}
+section .lead.rv{margin-bottom:44px}
+.ed-name{font:700 14px var(--display);letter-spacing:.16em}.ed-site{font:500 10px var(--mono);letter-spacing:.24em;color:var(--mute)}
+
+/* слова не рвутся, шапка помещается с логотипом */
+.w{display:inline-block;white-space:nowrap}
+.menu a,.navr .btn{white-space:nowrap}
+.hero h1{font-size:clamp(36px,7.6vw,128px)}
+@media(max-width:1440px){.navr .btn{display:none}}
